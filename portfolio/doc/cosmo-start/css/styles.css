@@ -1,0 +1,614 @@
+html { font-size: 62.5%; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- HEADER ---*/
+
+.header{
+  text-align: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.header-logo{
+    display: inline-block;
+    margin:20px;
+}
+  
+.header-toogle{
+    display:none; 
+}
+  
+
+.header-menu  {
+    width: 80%; /* 80% du contenant, donc du header qui lui fait 100% du body */
+    margin : 0 auto; /* de cette manière on centre horizontalement */
+    display : flex;  
+    justify-content: space-around; /* on met les espaces entre les éléments, y compris le plus à gauche et à droite */
+}
+
+
+.header-menu a{
+    padding: 10px 15px;
+    font-size: 1.6rem; /* 1.6rem -> 16px par défaut */
+    color: #202020;
+    text-transform: uppercase; 
+    text-decoration: none; /* pas de souligné sur le lien */
+
+    background-color: #fff;
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out; 
+    /* On veut une transition lorsque l'on survole 
+     C'est ici qu'il faut la mettre et pas en dessous, et on dit combien de temps et la fonciton de transition
+     plus d'info ici : https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Transitions/Utiliser_transitions_CSS
+     */
+}
+
+.header-menu a:hover{
+    background-color: black; /* on inverse les couleurs lorsque l'on survole */
+    color: #fff;
+}
+
+.short-text{
+  text-align: center;
+  background-color: #eee;
+  padding: 70px 20px;
+}
+
+/* --- SHORT-TEXT ---*/
+
+.short-text p{
+  font-size: 1.8rem; 
+  line-height: 1.7;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* --- BANNER ---*/
+
+.banner{
+  position: relative; /* relative mais ne bouge pas, elle reste donc à la place qui était prévue */
+  height: 700px; 
+  overflow: hidden;   /* on veut pas afficher plus que les 700px */
+  display : flex;     /* Les 3 lignes suivantes permettent de centrer le enfants horizontalement et verticalement */
+  justify-content: center;
+  align-items: center;
+}
+
+
+.banner-desc{
+  z-index: 2; /* c'est pour le remonter, sinon il serait caché derrière la vidéo */
+  text-align: center;
+}
+
+.banner-desc h1{
+  font-size: 8rem;
+  line-height: 1;
+  color:white;
+  margin-bottom: 10px;
+}
+
+.banner-video{
+  position: absolute; /* on est absolu par rapport au premier père relatif -> le .banner dans ce cas */ 
+  z-index: 0; /* On va la mettre en bas pour faire apparaitre le titre et le bouton */
+  width: 1920px; 
+  transform: translateX(-50%); /* la video se décale à gauche de 50% de sa largeur */
+  left: 50%; /* la video se met a 50% du bord gauche de la .banner */
+  top:0;     /* la vidéo est en haut de son conteneur */
+}
+
+/* Tout cela pour avoir un effet opaque sur la vidéo */
+
+.banner-video-overlay{
+  position: absolute; 
+  height: 100%; 
+  width: 100%;
+  top:0;
+  left:0;
+  background: rgba(0,0,0,0.5); /* opacité 50% 0.5... un nombre entre 0 et 1 */
+  z-index: 1;
+}
+
+.title-like{
+  font-family: 'Reenie Beanie', Arial, sans-serif;
+  line-height: 1.1; /* pas d'unité car c'est un multiplicateur */
+  font-weight: 400; /* font-weight: normal; */
+  /*font-weight: bold; ==> 700 */
+  margin: 0;
+  padding: 0;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 11px 25px;
+
+  border-width: 2px;
+  border-style: solid;
+
+
+  font-weight: normal;
+  text-transform: uppercase;
+  
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+  font-size: 1.6rem; 
+}
+  .btn:hover{
+    text-decoration: none;
+  }
+  
+  
+.btn .btn-white{
+    /* element .btn-white qui se trouve DANS un element .btn **/
+}
+
+.btn.btn-white{
+    /* element .btn qui dispose AUSSI de la classe .btn-white : c'est pas pareil !*/
+    color:white;
+    border-color:white;
+}
+
+
+.btn.btn-white:hover{
+    color:#555;
+    background-color:white;
+}
+
+/* --- THREE-WOMEN ---*/
+.three-women div{
+    display: flex;
+}
+.three-women-item{
+    flex-grow: 1;
+}
+
+.three-women-item figcaption{
+    position: absolute;
+    margin-top: -200px;
+    text-align: center;
+    padding-left: 100px;
+    font-size: 4rem;
+    color: red;
+    width: 100%;
+}
+
+
+
+.three-women-item img{
+  width: 100%; /* ca vous devez déjà l'avoir mis */
+  transition:  transform 500ms; 
+  transform: translate3d(0,0,-1) scale(-0.5);
+}
+
+.three-women-item:hover img{
+  transform: translate3d(0,0,0) scale(1.05);
+}
+
+.text-hide{
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+/* --- FOOTER ---*/
+
+.footer-socials a{
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    background-image:url(../images/socials.jpg);
+    padding-right: 50px;
+    
+}
+
+.footer-socials #btn-fb{
+    background-position: -3px -5px;
+    margin-left: 825px;
+}
+
+.footer-socials #btn-fb:hover{
+    background-position: -3px -52px;
+}
+
+.footer-socials #btn-tw{
+    background-position: -64px -5px;
+}
+
+.footer-socials #btn-tw:hover{
+    background-position: -64px -52px;
+}
+
+.footer-socials #btn-yt{
+    background-position: -126px -5px;
+}
+
+.footer-socials #btn-yt:hover{
+    background-position: -126px -52px;
+}
+
+.footer-socials #btn-it{
+    background-position: -189px -5px;
+}
+
+.footer-socials #btn-it:hover{
+    background-position: -189px -52px;
+}
+
+.footer-socials #btn-tu{
+    background-position: -251px -5px;
+}
+
+.footer-socials #btn-tu:hover{
+    background-position: -251px -52px;
+}
+
+.footer p{
+    text-align: center;
+    font-family: 'Reenie Beanie', Arial, sans-serif;
+    font-size: 3rem;
+    
+}
+
+/* --- BON-PLANS ---*/
+
+.bon-plans form div{
+    display: flex;
+}
+
+.bons-plans input[type="email"]{
+    flex-basis: 60%;
+}
+
+.bons-plans input[type="submit"]{
+    flex-basis: 40%;
+}
+
+.bons-plans form{
+    background-image: url(../images/bon-reduction.png);
+    background-repeat: no-repeat;
+}
+
+.bons-plans{
+    text-align: center;
+    background-color: #eee;
+}
+
+.bons-plans h2{
+    font-weight: bold;
+}
+
+/* --- ARTICLES ---*/
+
+ .articles{
+    padding-top:30px;
+    padding-bottom:30px;
+    width : 80%;
+    margin : 0 auto;
+  }
+
+  .articles > div {
+    display : flex;
+    flex-wrap: wrap;
+    margin-bottom : 20px;
+    justify-content: space-around;
+  }
+
+  .articles > div > div {
+    flex-basis : 31%;
+    min-width : 300px;
+    margin-bottom: 20px;
+  }
+
+
+  .articles h4{
+    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+.articles img{
+  width: 100%;
+}
+
+
+  .articles a{
+    color:black;
+    display:block;
+    background:#eee;
+    padding: 10px;
+    text-decoration: none;
+  }
+  
+  
+  .articles a:hover{
+    text-decoration: none;
+  }
+  
+  
+  .articles .articles-date{
+    display: block;
+    text-align: center;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  
+  .articles .articles-date:after{
+   content:'';
+   position: absolute;
+   width: 50px;
+   height: 1px;
+   left: 50%;
+   transform: translateX(-50%);
+   background: black;
+   bottom:0;
+  }
+
+
+  .articles-img{
+    position: relative;
+  }
+
+
+  .articles-over{
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    top: 10px;
+    bottom: 10px;
+    left:10px;
+    right: 10px;
+    opacity: 0;
+    text-align: center;
+    transition: opacity 300ms ease-in-out;
+  }
+
+
+  .articles-over > span{
+    position: absolute;
+    width: 100%;
+    font-size: 3rem;
+    color:white;
+    top:100%;
+    left:0;
+    overflow: hidden;
+    transform: translateY(-50%);
+    transition: top 200ms ease-in-out;
+  }
+
+
+  .articles a:hover .articles-over{
+    opacity: 1;
+  }
+
+
+  .articles a:hover .articles-over > span{
+    top:50%;
+  }
+
+/* --- TENDANCES ---*/
+
+.tendances{
+  width: 100%;
+  display : flex;
+}
+
+.tendances-item {
+  flex-basis : 50%;
+}
+
+.tendances-inverse {
+  flex-direction: row-reverse;
+}
+
+
+.tendances-txt h3{
+  font-size: 8rem;
+}
+.tendances-txt p{
+  color:#666; 
+  font-size: 1.8rem; 
+  line-height: 1.5; 
+  text-align: justify;
+}
+
+
+.tendances-img{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  vertical-align: bottom;
+}
+.tendances-img span{
+  color:white;
+  text-align: center;
+  display: block;
+  background: rgba(0,0,0,0.7); 
+  padding:30px;
+}
+
+/* --- CONFIDENCES ---*/
+
+.confidence{
+  overflow: hidden;
+  background: #D2D2D3 url("../images/confidence-bg.png") repeat-x 0 0;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+.confidence-item{
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  display : flex;
+  justify-content: space-between;
+}
+
+
+
+.confidence-intro {
+  flex-basis: 35%;
+}
+
+.confidence-produits {
+  flex-basis : 35%;
+  margin-right : 50px;
+  margin-left : 50px;
+}
+
+.confidence-decor {
+  flex-basis : 30%
+}
+
+.confidence-intro{
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.confidence-intro h2 {
+  font-size: 6rem;
+  line-height: 0.7;
+  color:white;
+  margin:20px 0;
+}
+.confidence-intro h3 {
+  font-size: 2rem;
+  text-transform: uppercase; 
+  color:#202020;
+  margin:0;
+}
+.confidence-intro p {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic; 
+  margin:0;
+  margin-bottom: 30px;
+}
+
+.confidence-intro .link {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color:white;
+  display:block;
+}
+.confidence-intro .link:hover {
+  color:black;  
+  text-decoration: none;
+}
+.confidence-intro .btn{
+  margin-top: 30px;
+}
+
+
+.confidence-produits{
+  position:relative;
+}
+
+
+.confidence-prix{
+  position: absolute;
+  top:320px; 
+  left: 210px;
+  width: 100%;
+  color:white;
+  text-align: left;
+}
+
+  .confidence-prix .fleche-g {
+    position: absolute;top: -40px;left: -30px;
+  }
+  .confidence-prix .designation {
+    display: block;
+    
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+  }
+  .confidence-prix .prix {
+    display: block;
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+  }
+  .confidence-prix .prix span {
+    display: block; 
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  
+  .confidence-decor{
+    position: relative;
+  }
+  .confidence-decor img {
+    top:100px;
+    position: absolute;
+    left:50px;
+  }
+
+/* --- DIVERS ---*/
+
+ .title-like{
+  font-family: 'Reenie Beanie', Arial, sans-serif;
+  line-height: 1.1em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 25px;
+
+  border-width: 2px;
+  border-style: solid;
+
+  font-size: 1.6rem; /** Explications sur les REM ? */
+  font-weight: normal;
+  text-transform: uppercase;
+  
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+  .btn:hover{
+    text-decoration: none;
+  }
+  
+  
+.btn-white{
+  color: #fff;
+  border-color: #fff;
+  background-color: transparent;
+}
+  .btn-white:hover {
+    color: #555; 
+    background-color: #fff;
+  }
+  
+.btn-black{
+  color: #000;
+  border-color: #000;
+  background-color: transparent;
+}
+  .btn-black:hover {
+    color: #fff; 
+    background-color: #000;
+  } 
+  
+.btn-grey{
+  color: #555;
+  border-color: #555;
+  background-color: transparent;
+}
+  .btn-grey:hover {
+    color: #fff; 
+    background-color: #555;
+  } 
+
+
+
